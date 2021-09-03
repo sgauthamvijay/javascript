@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uerhome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+        <script src="bankapp.js"></script>
+
+
+
+
+        </script>
+
+    <script src="bankapp.js"></script>
+    <style>
+        .navbar {
+            background-color: limegreen;
+        }
+
+        .btn:hover {
+            border-color: black;
+            color: limegreen;
+            background-color: rgb(255, 187, 0);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="#">Home</a>
+                    </li>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Fund tranfer
+                    </button>
+                    <button type="button" class="btn " onclick="bank.balanceEnquiry()">
+                        Balance enquiry
+                    </button>
+                    <li class="nav-item">
+                        <a class="nav-link"><span id="usern"> </span> </a>
+                    </li>
+
+
+
+                    <li class="nav-item ">
+                        <a class="nav-link  btn btn-danger" onclick="bank.logOut()">logout</a>
+                    </li>
+
+
+
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="contianer">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./calculator-home-model-yellow-pencil-banking-account-book-calendar-white-background-home-loan_42708-763.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./close-up-home-model-calculator-banking-account-book-outside-background_42708-1075.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./male-hand-holding-house-icon-blue-background-property-insurance-security-concept-real-estate-concept-banner-with-copy-space_150455-7160.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+    <div class="container">
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title " id="exampleModalLabel">Transfer Amount</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="number" class="form-control mt-2" placeholder="To accno" id="toacno">
+                        <input type="number" class="form-control mt-2" placeholder="Amount" id="amt">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="bank.fundTransfer()">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script>
+    let loggeduser = JSON.parse(sessionStorage.getItem(sessionStorage.key(0)))
+
+    usern.innerHTML = loggeduser.person_name;
+    console.log(loggeduser);
+
+</script>
+
+</html>

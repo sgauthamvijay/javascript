@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <button class="btn btn-primary" onclick="popSlot()">Get slots</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <input type="text" id="search">
+                <button class="btn btn-success" onclick=" searchVaccine()"> Vaccine</button>
+
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <input type="text" id="search1">
+                    <button class="btn btn-warning" onclick=" searchDist()">District</button>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <table class="table">
+                        <tr>
+                            <td>Center name</td>
+                            <td>Age group</td>
+                            <td>Time</td>
+                            <td>Vaccine</td>
+                            <td>District</td>
+
+                        </tr>
+                        <tbody id="result">
+
+                        </tbody>
+                    </table>
+                    <div class="col-4"></div>
+                </div>
+            </div>
+
+        </div>
+
+</body>
+<script>
+    var slots = [
+        { center: "phc", group: "18+", time: "9-1", vaccine: "co-vaxin", dist: "pkd" },
+        { center: "aims", group: "65+", time: "10-12", vaccine: "co-vaxin", dist: "tvm" },
+        { center: "aster", group: "18+", time: "1-3", vaccine: "co-vaxin", dist: "idk" },
+        { center: "kims", group: "65+", time: "10-2", vaccine: "co-vaxin", dist: "ekm" },
+        { center: "kims", group: "65+", time: "10-2", vaccine: "sputnic", dist: "tsr" },
+        { center: "kims", group: "65+", time: "10-2", vaccine: "sputnic", dist: "klm" },
+        { center: "kims", group: "65+", time: "10-2", vaccine: "covishield", dist: "pt" },
+        { center: "kims", group: "65+", time: "10-2", vaccine: "covishield", dist: "kty" },
+
+    ]
+    function popSlot() {
+        let html_data = "";
+        for (let slot of slots) {
+            html_data += `<tr><td>${slot.center}</td><td>${slot.group}</td><td>${slot.time}</td><td>${slot.vaccine}</td><td>${slot.dist}</td></tr>`
+
+        }
+        result.innerHTML = html_data;
+    }
+    function popData(data) {
+        let html_data = "";
+        for (let slot of data) {
+            html_data += `<tr><td>${slot.center}</td><td>${slot.group}</td><td>${slot.time}</td><td>${slot.vaccine}</td><td>${slot.dist}</td></tr>`
+
+        }
+        result.innerHTML = html_data;
+    }
+    function searchVaccine() {
+        let vacc_name = search.value;
+        let data = slots.filter(slot => slot.vaccine == vacc_name)
+        popData(data);
+
+    }
+    function searchDist() {
+        let dist_name = search1.value;
+        let data = slots.filter(slot => slot.dist == dist_name)
+        popData(data);
+    }
+</script>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 mt-3">
+                <input type="text" id="c_name" class="form-control">
+               <div class="row">
+                 <div class="col-4"></div>
+                 <div class="col-4  mt-3"> <button class="btn btn-danger" onclick="getCountryDetails()">fetch data</button></div>
+                 <div class="col-4"></div>
+               </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4" id="data"></div>
+            <div class="col-4"></div>
+
+        </div>
+
+    </div>
+</body>
+<script>
+
+function displayValue(country_data){
+let flag=country_data[0].flag;
+// console.log(flag);
+let population=country_data[0].population;
+let currency=country_data[0].currencies[0].name
+// console.log(population);
+let currency_symbol=country_data[0].currencies[0].symbol
+// console.log(currency);
+// console.log(symbol);
+
+
+let html_data=`<div class="card" style="width: 18rem;">
+  <img src="${flag}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">country Name${country_data[0].name}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">population${population}</li>
+    <li class="list-group-item">currency${currency}</li>
+    <li class="list-group-item">currency symbol${currency_symbol}</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>`
+
+data.innerHTML=html_data;
+
+
+
+
+}
+function getCountryDetails(){
+    let country_name=c_name.value;
+    let url=`https://restcountries.eu/rest/v2/name/${country_name}?fullText=true`
+    let request=new XMLHttpRequest()
+    request.open("get",url)
+    request.send();
+    request.onreadystatechange=()=>{
+        if(request.readyState==4){
+            if(request.status>199 && request.status<300){
+                let country_data=JSON.parse(request.responseText)
+                // console.log(country_data);
+                displayValue(country_data);
+                // getCountryDetails(country_name)
+            }
+        }
+    }
+
+
+
+
+  }
+
+
+</script>
+</html>

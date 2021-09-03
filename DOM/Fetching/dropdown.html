@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <select class="form-control" id="d_data" aria-label=".form-select-lg example" >
+                    <option selected>Select country </option>
+                </select>
+                    
+                   
+               
+
+            </div>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+    <div class="row ">
+        <div class="col-4"></div>
+        <div class="col-4 " id="data"></div>
+        <div class="col-4"></div>
+    </div>
+    </div>
+
+
+
+</body>
+<script>
+    function dropdownData(){
+        let country_name = c_name.value
+        let url = `https://restcountries.eu/rest/v2/name/${country_name}?fullText=true`
+        let request = new XMLHttpRequest()
+        request.open("get", url)
+        request.send();
+        request.onreadystatechange = () => {
+            if (request.readyState == 4) {
+                if (request.status > 199 && request.status < 300) {
+                    let country_data = JSON.parse(request.responseText)
+                    // console.log(contry_data);
+                    dropDown(country_data)
+                }
+            }
+        }
+
+    }
+function dropDown(country_data){
+    let html_data=""
+    for(let datas of country_data){
+        html_data+=`<option value="${datas.name}">${datas.name}</option>`
+        d_data.innerHTML=html_data;
+    }
+}
+    function diplayValue(country_data) {
+        let flg = country_data[0].flag;
+        let pop = country_data[0].population;
+        let cur = country_data[0].currencies[0].name;
+        let sym = country_data[0].currencies[0].symbol;
+        console.log(sym);
+        let html_data = `<div class="card" style="width: 18rem;">
+  <img src="${flg}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Country Name - ${country_data[0].name}</h5>
+    <p class="card-text"></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Population-${pop}</li>
+    <li class="list-group-item">Currency-${cur}</li>
+    <li class="list-group-item">Currency symbol-${sym}</li>
+  </ul>
+  
+</div>`
+        data.innerHTML = html_data;
+
+    }
+    function getcountryDetails() {
+        let country_name = c_name.value
+        let url = `https://restcountries.eu/rest/v2/name/${country_name}?fullText=true`
+        let request = new XMLHttpRequest()
+        request.open("get", url)
+        request.send();
+        request.onreadystatechange = () => {
+            if (request.readyState == 4) {
+                if (request.status > 199 && request.status < 300) {
+                    let country_data = JSON.parse(request.responseText)
+                    // console.log(contry_data);
+                    diplayValue(country_data)
+                }
+            }
+        }
+
+
+    }
+    window.onload=dropDown(country_data);
+
+</script>
+
+</html>

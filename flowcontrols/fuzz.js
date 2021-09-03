@@ -22,3 +22,26 @@ if( num3 % 15 ==0){
 else{
     console.log(`no`)
 }
+
+
+var num=15;
+if( num%5==0){
+    console.log(`fizz buzz`);
+}
+else if(num%3==0){
+    console.log(`fizz`);
+}
+
+
+
+
+//next
+
+var num=15;
+var res="";
+if( num%3==0){
+    res=+"fuzz"
+}
+if (num%5){
+    res=+"bizz"
+}
