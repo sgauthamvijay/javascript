@@ -85,20 +85,22 @@
         font-size: 20px;
         border-radius: 10%;
     }
-    .btnno{
-        width: 125px; 
-        
+
+    .btnno {
+        width: 125px;
+
         height: 40px;
         font-size: 20px;
-       
-       
+
+
         border: 2px solid black;
         border-radius: 4px;
 
         margin-left: 3px;
         margin-right: 3px;
     }
-    .btnno:hover{
+
+    .btnno:hover {
         border-color: #2d07d499;
         color: #0662b899;
         background-color: rgb(14, 13, 12);
@@ -107,6 +109,7 @@
 
     h3 {
         text-align: center;
+        color: white;
     }
 
 
@@ -119,12 +122,16 @@
         height: 100vh;
     }
 
-    .col {
-        margin-left: 39%;
-        background-color: rgb(0, 0, 0);
+    .col-4 {
+        /* margin-left: 39%; */
+        background-color: rgb(0, 78, 97);
+      
         width: 300px;
         height: 395px;
         border-radius: 5%;
+        margin-top: 40px;
+
+
 
 
     }
@@ -145,51 +152,75 @@
 </style>
 
 <body class="container">
+    <div class="row">
+        <div class="col">
+            <div class="col-4">
 
-    <div class="col">
 
-        <table id="calc">
-            <tr>
+            <table id="calc">
+                <tr>
 
-                <td colspan="4"><input class="btnd" name="display" id="inpt" type="text"></td>
-                <div>
-                    <h3>Calculator</h3>
-                </div>
+                    <td colspan="4"><input class="btnd" name="display" id="inpt" type="text"></td>
+                    <div>
+                        <h3>Calculator</h3>
+                    </div>
 
-            </tr>
-            <tr>
-                <td><input class="btncl btn-outline-danger" type=button onclick="clearBox()" value="C"></td>
+                </tr>
+                <tr>
+                    <td><input class="btncl btn-outline-danger " type=button onclick="clearBox()" value="C"></td>
 
-                <td><input class="btn btn-warning" type=button onclick="removeElement()" value="<"></td>
+                    <td><input class="btn btn-warning" type=button onclick="removeElement()" value="<"></td>
 
-                <td><input class="btn btn-warning" type=button value="/" onclick="displayValue('/')"></td>
-                <td><input class="btn btn-warning" type=button value="X" onclick="displayValue('*')"></td>
-            </tr>
-            <tr>
-                <td><input class="btnn btn-primary" type=button value="7" onclick="displayValue('7')"></td>
-                <td><input class="btnn btn-primary" type=button value="8" onclick="displayValue('8')"></td>
-                <td><input class="btnn btn-primary" type=button value="9" onclick="displayValue('9')"></td>
-                <td><input class="btn btn-warning" type=button value="-" onclick="displayValue('-')"></td>
-            </tr>
-            <tr>
-                <td><input class="btnn btn-primary" type=button value="4" onclick="displayValue('4')"></td>
-                <td><input class="btnn btn-primary" type=button value="5" onclick="displayValue('5')"></td>
-                <td><input class="btnn btn-primary" type=button value="6" onclick="displayValue('6')"></td>
-                <td><input class="btn btn-warning" type=button value="+" onclick="displayValue('+')"></td>
-            </tr>
-            <tr>
-                <td><input class="btnn btn-primary" type=button value="1" onclick="displayValue('1')"></td>
-                <td><input class="btnn btn-primary" type=button value="2" onclick="displayValue('2')"></td>
-                <td><input class="btnn btn-primary" type=button value="3" onclick="displayValue('3')">
-                </td>
-                <td rowspan="2"><input class="btneq  btn-dark" type=button value="=" onclick="evaluateExp()"></td>
-            </tr>
-            <tr>
-                <td colspan=2><input class="btnno btn-primary " type=button value="0" onclick="displayValue('0')"></td>
-                <td><input class="btn btn-warning" type=button value="." onclick="displayValue('.')"></td>
-            </tr>
-        </table>
+                    <td><input class="btn btn-warning" type=button value="/" onclick="displayValue('/')"></td>
+                    <td><input class="btn btn-warning" type=button value="X" onclick="displayValue('*')"></td>
+                </tr>
+                <tr>
+                    <td><input class="btnn btn-primary" type=button value="7" onclick="displayValue('7')"></td>
+                    <td><input class="btnn btn-primary" type=button value="8" onclick="displayValue('8')"></td>
+                    <td><input class="btnn btn-primary" type=button value="9" onclick="displayValue('9')"></td>
+                    <td><input class="btn btn-warning" type=button value="-" onclick="displayValue('-')"></td>
+                </tr>
+                <tr>
+                    <td><input class="btnn btn-primary" type=button value="4" onclick="displayValue('4')"></td>
+                    <td><input class="btnn btn-primary" type=button value="5" onclick="displayValue('5')"></td>
+                    <td><input class="btnn btn-primary" type=button value="6" onclick="displayValue('6')"></td>
+                    <td><input class="btn btn-warning" type=button value="+" onclick="displayValue('+')"></td>
+                </tr>
+                <tr>
+                    <td><input class="btnn btn-primary" type=button value="1" onclick="displayValue('1')"></td>
+                    <td><input class="btnn btn-primary" type=button value="2" onclick="displayValue('2')"></td>
+                    <td><input class="btnn btn-primary" type=button value="3" onclick="displayValue('3')">
+                    </td>
+                    <td rowspan="2"><input class="btneq  btn-dark" type=button value="=" onclick="evaluateExp()"></td>
+                </tr>
+                <tr>
+                    <td colspan=2><input class="btnno btn-primary " type=button value="0" onclick="displayValue('0')">
+                    </td>
+                    <td><input class="btn btn-warning" type=button value="." onclick="displayValue('.')"></td>
+                </tr>
+            </table>
+        </div>
+        </div>
+
+
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
 
 </body>
 
